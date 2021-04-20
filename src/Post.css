@@ -1,0 +1,33 @@
+
+.toTheRight{
+    position:absolute;
+    left: 83%;  
+  }
+  
+  .post{
+    position: relative;
+    border: 1px solid gray;
+    width: 75%;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid rgb(0, 0, 0);
+  
+  }
+  body {
+    font-family: sans-serif;
+    font-size: 13px
+  }
+  .xInBox1{
+    float:right;
+    font-size: 50px;
+  
+  }
+  
+  #fontSize16,#blog1,#blog2,#blog3{
+    font-size: 16px
+    
+  }
+  .red{
+    color: red;
+  }
