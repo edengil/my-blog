@@ -12,8 +12,9 @@ const Right = props => {
         <span id="blog1">Blog post #{right.second_blog} <a href='link'>{right.link_of_second2}</a></span>
         <br></br>
         <span id="blog2">Blog post #{right.third_blog} <a href='link'>{right.link_of_third3}</a></span>
-        <br></br>
+        <br></br><hr></hr>
     </div>
+
 };
 
 export default Right;
