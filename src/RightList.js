@@ -1,13 +1,14 @@
 import Right from "./Right";
 import React from 'react';
+import './RightList.css';
 
 
 const RightList = props => {
     const { posts } = props;
-    const listItems = posts.map((postItem) =>
-        <Right post={postItem} />
+    const listOfItems = posts.map((postItem) =>
+        <Right right={postItem} />
     );
-    return <div>{listItems}</div>
+    return <div class="left">{listOfItems}</div>
 };
 
 

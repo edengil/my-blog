@@ -1,62 +1,59 @@
 import './App.css';
-import PostList from './PostList';
+import Home from "./Home";
+import AboutMe from "./AboutMe"
+import NewPost from "./NewPost"
+import SeePost from "./SeePost"
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-const props = [
-  {
-    titel: "Blog post #",
-    numOfBlog: "1",
-    start: "My ",
-    strong: "first blog post ",
-    continue: "is all about me",
-    red: " blog post",
-    continue2: " and how to write a new post in my ",
-    continue2andbar: "blog, you can find it ",
-    link: "here",
-    after4bar: "Published ",
-    numOfDays: "1",
-    end: "days ago by ",
-    name: "Israel"
-  },
-  {
-    titel: "Blog post #",
-    numOfBlog: "2",
-    start: "My",
-    strong: " second blog post",
-    continue: " is all about my blog post.",
-    red: "",
-    continue2: "",
-    continue2andbar: "",
-    link: "",
-    after4bar: "Published ",
-    numOfDays: "2",
-    end: "days ago by ",
-    name: "Joe"
-  },
-  {
-    titel: "Blog post #",
-    numOfBlog: "3",
-    start: "My",
-    strong: " third blog post",
-    continue: " is all about my blog post.",
-    red: "",
-    continue2: "",
-    continue2andbar: "",
-    link: "",
-    after4bar: "Published ",
-    numOfDays: "3",
-    end: "days ago by ",
-    name: "Israel"
-  }
-]
+
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: {
+//       main: green[500],
+//     },
+//     secondary: {
+//       main: "#76ff03",
+//     },
+//   },
+// });
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <PostList posts={props} />
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <Link to="/">Home</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to="/about">About</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to="/NewPost">New Post</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to="/Post">Post</Link>
+
+          </ul>
+        </nav>
+        <header>
+          <Switch>
+            <Route path="/Home">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <AboutMe />
+            </Route>
+            <Route path="/NewPost">
+              <NewPost />
+            </Route>
+            <Route path="/Post">
+              <SeePost />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </Router >
   );
 }
+
 
 export default App;
