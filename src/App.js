@@ -1,56 +1,60 @@
 import './App.css';
-import Home from "./Home";
-import AboutMe from "./AboutMe"
-import NewPost from "./NewPost"
-import SeePost from "./SeePost"
+import Home from "./components/Home/Home";
+import AboutMe from "./components/AboutMe/AboutMe";
+import NewPost from "./components/NewPost/NewPost";
+import SeePost from "./components/SeePost/SeePost";
+import AppBar from "./components/AppBar";
+
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Login from "./sections/Login/Login";
+import { ThemeProvider } from '@material-ui/core/styles';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: {
-//       main: green[500],
-//     },
-//     secondary: {
-//       main: "#76ff03",
-//     },
-//   },
-// });
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: green[500],
+    },
+  },
+});
 
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <Link to="/">Home</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/about">About</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/NewPost">New Post</Link>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/Post">Post</Link>
+      <ThemeProvider theme={theme}>
+        <div>
+          <AppBar />
 
-          </ul>
-        </nav>
-        <header>
-          <Switch>
-            <Route path="/Home">
-              <Home />
-            </Route>
-            <Route path="/about">
-              <AboutMe />
-            </Route>
-            <Route path="/NewPost">
-              <NewPost />
-            </Route>
-            <Route path="/Post">
-              <SeePost />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </header>
-      </div>
+          <header>
+            <Switch>
+              <Route path="/Home">
+                <Home />
+              </Route>
+              <Route path="/about">
+                <AboutMe />
+              </Route>
+              <Route path="/NewPost">
+                <NewPost />
+              </Route>
+              <Route path="/Post">
+                <SeePost />
+              </Route>
+              <Route path="/Login">
+                <Login />
+              </Route>
+              <Route path="/">
+                <Login />
+              </Route>
+            </Switch>
+          </header>
+        </div>
+      </ThemeProvider>
     </Router >
   );
 }
