@@ -1,5 +1,10 @@
-import PostList from './PostList';
-import RightList from './RightList';
+import PostList from './PostList/PostList';
+import RightList from './RightList/RightList';
+import Grid from '@material-ui/core/Grid';
+import React from "react";
+import DOMPurify from 'dompurify'
+
+
 
 const right = [
     {
@@ -26,13 +31,8 @@ const props = [
     {
         titel: "Blog post #",
         numOfBlog: "1",
-        start: "My ",
-        strong: "first blog post ",
-        continue: "is all about me",
-        red: " blog post",
-        continue2: " and how to write a new post in my ",
-        continue2andbar: "blog, you can find it ",
-        link: "here",
+
+        mainContent: '<span>My <strong>first blog post</strong> is all about me <span class="red">blog post</span> and how to write a new post in my <a href="link"><span>here</span></a>.</span>',
         after4bar: "Published ",
         numOfDays: "1",
         end: "days ago by ",
@@ -41,13 +41,7 @@ const props = [
     {
         titel: "Blog post #",
         numOfBlog: "2",
-        start: "My",
-        strong: " second blog post",
-        continue: " is all about my blog post.",
-        red: "",
-        continue2: "",
-        continue2andbar: "",
-        link: "",
+        mainContent: '<span>My <strong>second blog post</strong> is all about my blog post.</span>',
         after4bar: "Published ",
         numOfDays: "2",
         end: "days ago by ",
@@ -56,13 +50,7 @@ const props = [
     {
         titel: "Blog post #",
         numOfBlog: "3",
-        start: "My",
-        strong: " third blog post",
-        continue: " is all about my blog post.",
-        red: "",
-        continue2: "",
-        continue2andbar: "",
-        link: "",
+        mainContent: '<span>My <strong>third blog post</strong> is all about my blog post.</span>',
         after4bar: "Published ",
         numOfDays: "3",
         end: "days ago by ",
@@ -75,8 +63,19 @@ function Home() {
         <div>
             <header>
                 <h1>This is my blog</h1>
-                <RightList posts={right} />
-                <PostList posts={props} />
+                <Grid container
+                    spacing={5}
+                    direction="row"
+                >
+                    <Grid item xs={10}>
+                        <PostList posts={props} />
+
+                    </Grid>
+                    <Grid item xs={2}>
+                        <RightList posts={right} />
+                    </Grid>
+                </Grid>
+
 
             </header>
         </div>
