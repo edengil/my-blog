@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
+import { fontSize, style } from '@material-ui/system';
 
 
 function Copyright() {
@@ -49,7 +50,7 @@ export default function Login() {
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <FingerprintIcon />
+                    <FingerprintIcon style={{ fontSize: 35 }} />
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Login

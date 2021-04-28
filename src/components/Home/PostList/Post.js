@@ -12,15 +12,21 @@ const Post = props => {
         direction="row"
     >
         <Grid item xs={11}>
-            <div>
-                <span class="fontSize16">{post.titel}{post.numOfBlog}</span>
+            <div><Grid
+                container
+                direction="column"
+            ><Grid>
+                    <span class="fontSize16">{post.titel}{post.numOfBlog}</span></Grid>
+                <br></br><Grid>
+                    <div className="content" dangerouslySetInnerHTML={{ __html: post.mainContent }}></div>
+                </Grid>
                 <br></br>
-                <div className="content" dangerouslySetInnerHTML={{ __html: post.mainContent }}></div>
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
-                {post.after4bar}{post.numOfDays} {post.end}{post.name}
+                <br></br><Grid justify="flex-end"
+                >
+                    {post.after4bar}{post.numOfDays} {post.end}{post.name}
+                </Grid></Grid>
             </div>
         </Grid>
         <Grid
@@ -28,7 +34,7 @@ const Post = props => {
             container justify="flex-end"
             alignItems="flex-start"
         >
-            <div><CancelIcon color="error" fontSize="large" />
+            <div><CancelIcon color="error" style={{ fontSize: 45 }} />
             </div>
         </Grid>
     </Grid>
