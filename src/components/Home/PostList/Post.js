@@ -1,7 +1,6 @@
 import React from 'react';
 import './Post.css';
 import Grid from '@material-ui/core/Grid';
-import DOMPurify from 'dompurify'
 import CancelIcon from '@material-ui/icons/Cancel';
 
 
@@ -16,16 +15,16 @@ const Post = props => {
                 container
                 direction="column"
             ><Grid>
-                    <span class="fontSize16">{post.titel}{post.numOfBlog}</span></Grid>
+                    <span class="fontSize16"><h2>{post.title}</h2></span></Grid>
                 <br></br><Grid>
-                    <div className="content" dangerouslySetInnerHTML={{ __html: post.mainContent }}></div>
+                    <div className="content" dangerouslySetInnerHTML={{ __html: post.body }}></div>
                 </Grid>
                 <br></br>
                 <br></br>
                 <br></br>
                 <br></br><Grid justify="flex-end"
                 >
-                    {post.after4bar}{post.numOfDays} {post.end}{post.name}
+                    <span>Published 1 days ago by Israel</span>
                 </Grid></Grid>
             </div>
         </Grid>
