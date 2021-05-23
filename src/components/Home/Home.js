@@ -86,7 +86,6 @@ export default class Home extends React.Component {
                     >
                         <Grid item xs={10}>
                             <PostList posts={data} />
-
                         </Grid>
                         <Grid item xs={2}>
                             <RightList posts={this.right} />

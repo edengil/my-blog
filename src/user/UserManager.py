@@ -1,10 +1,11 @@
+
 from settings import dbpwd
 from flask import Flask, request, abort, make_response
 import mysql.connector as mysql
 import requests
 import json
 import uuid
-from flask_cors import flask_cors
+# from flask_cors import flask_cors
 
 db = mysql.connect(
     host="localhost",
