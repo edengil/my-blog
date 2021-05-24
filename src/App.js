@@ -4,8 +4,9 @@ import AboutMe from "./components/AboutMe/AboutMe";
 import NewPost from "./components/NewPost/NewPost";
 import SeePost from "./components/SeePost/SeePost";
 import AppBar from "./components/AppBar";
+import SignUp from "./components/SignUp/SignUp";
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./sections/Login/Login";
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -47,6 +48,9 @@ function App() {
               </Route>
               <Route path="/Login">
                 <Login />
+              </Route>
+              <Route path="/SignUp">
+                <SignUp />
               </Route>
               <Route path="/">
                 <Login />
