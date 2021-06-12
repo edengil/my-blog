@@ -10,6 +10,7 @@ import axios from 'axios';
 
 
 export default class Home extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -37,24 +38,6 @@ export default class Home extends React.Component {
             link_of_first: "go to page",
             link_of_second: "go to page",
             link_of_third: "go to page"
-        }
-    ]
-
-    props = [
-        {
-            titel: "Blog post #1",
-            body: '<span>My <strong>first blog post</strong> is all about me <span class="red">blog post</span> and how to write a new post in my <a href="link"><span>here</span></a>.</span>'
-
-        },
-        {
-            titel: "Blog post #2",
-            body: '<span>My <strong>second blog post</strong> is all about my blog post.</span>'
-
-        },
-        {
-            titel: "Blog post #3",
-            body: '<span>My <strong>third blog post</strong> is all about my blog post.</span>'
-
         }
     ]
 
