@@ -67,8 +67,7 @@ function App() {
                 <SeePost />
               </Route>
               <Route path="/Login">
-                <Login onSingIn={setLogin} onLogOut={setLogout} />
-                {user != null ? <Redirect to="/Home" /> : ""}
+                {user != null ? <Redirect to="/Home" /> : <Login onSingIn={setLogin} onLogOut={setLogout} />}
               </Route>
               <Route path="/SignUp">
                 <SignUp />
