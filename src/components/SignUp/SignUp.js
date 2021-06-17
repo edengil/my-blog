@@ -7,7 +7,6 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -90,7 +89,7 @@ class SignUp extends React.Component {
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign up
-        </Typography>
+                    </Typography>
                     <form className={classes.form} noValidate>
                         <Grid container spacing={2}>
                             <Grid item xs={12} >
@@ -130,7 +129,7 @@ class SignUp extends React.Component {
                             className={classes.submit}
                         >
                             Sign Up
-          </Button>
+                        </Button>
 
                         <div><h1>
                             {this.state.resp ? this.state.resp : null}
@@ -139,7 +138,7 @@ class SignUp extends React.Component {
                             <Grid item>
                                 <Link href="/Login" variant="body2">
                                     Already have an account? Sign in
-              </Link>
+                                </Link>
                             </Grid>
                         </Grid>
                     </form>

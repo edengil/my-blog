@@ -5,12 +5,10 @@ import NewPost from "./components/NewPost/NewPost";
 import SeePost from "./components/SeePost/SeePost";
 import AppBar from "./components/AppBar";
 import SignUp from "./components/SignUp/SignUp";
-
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Login from "./sections/Login/Login";
 import { ThemeProvider } from '@material-ui/core/styles';
 import React, { useState } from 'react';
-
 import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 
@@ -25,11 +23,28 @@ const theme = createMuiTheme({
   },
 });
 
+// constructor(props) {
+//   super(props);
+//   this.state = {
+//       user: null,
+//       pass: null,
+//       data: [],
+//       resp: null
+//   };
+// }
+
 
 
 
 function App() {
-  const [user, setUser] = useState({ userLoggedIn: false, user: null });
+  const [user, setUser] = useState({
+    userLoggedIn: false,
+    user: null,
+    pass: null,
+    data: [],
+    resp: null
+  });
+
   function setLogin(user) {
     setUser({
       userLoggedIn: true,
@@ -38,20 +53,22 @@ function App() {
     console.log(user)
   }
 
-  function setLogout() {
-    console.log("LOGGED OUT ")
 
+
+
+  function setLogout() {
+    console.log("LOGGED OUT")
     this.setState({
       userLoggedIn: false,
       user: null
     });
   }
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <div>
-          <AppBar />
-
+          <AppBar user={user} onLogOut={setLogout} />
           <header>
             <Switch>
               <Route path="/Home">
@@ -59,15 +76,17 @@ function App() {
               </Route>
               <Route path="/about">
                 <AboutMe />
+                {/* {user != null ? <AboutMe /> : <Login onSingIn={setLogin} onLogOut={setLogout} />} */}
               </Route>
               <Route path="/NewPost">
                 <NewPost />
+                {/* {user != null ? <NewPost /> : <Login onSingIn={setLogin} onLogOut={setLogout} />} */}
               </Route>
               <Route path="/Post">
                 <SeePost />
               </Route>
               <Route path="/Login">
-                {user != null ? <Redirect to="/Home" /> : <Login onSingIn={setLogin} onLogOut={setLogout} />}
+                {user.userLoggedIn === true ? <Redirect to="/Home" /> : <Login onSingIn={setLogin} />}
               </Route>
               <Route path="/SignUp">
                 <SignUp />
@@ -85,3 +104,5 @@ function App() {
 
 
 export default App;
+
+

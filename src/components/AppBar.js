@@ -10,6 +10,8 @@ import AppBarNavigation from './AppBarNavigation';
 import { Drawer } from '@material-ui/core';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import { useHistory } from "react-router";
+import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,15 +24,28 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
 }));
+// constructor(props) {
+//     super(props);
+//     this.state = {
+//         resp: null
+//     };
+// };
 
 
-export default function ButtonAppBar(props) {
+
+
+function ButtonAppBar(props) {
     const classes = useStyles();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const dologout = (e) => {
+        const url = "/Logout";
+        const data = {};
+        axios.post(url, data);
+        this.props.onLogOut()
+    }
 
     let history = useHistory();
-
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -52,10 +67,18 @@ export default function ButtonAppBar(props) {
                     <Typography variant="h6" className={classes.title}>
                         My Personal Blog
                     </Typography>
+                    {props.user.userLoggedIn !== true ?
+                        <Button color="inherit" onClick={() => history.push("/Login")} >Login<FingerprintIcon /></Button>
+                        :
+                        <Button color="inherit" onClick={dologout} >Logout<FingerprintIcon /></Button>
+                    }
 
-                    <Button color="inherit" onClick={() => history.push("/Login")} >Login<FingerprintIcon /></Button>
+
+
                 </Toolbar>
             </AppBar>
         </div>
     );
 }
+
+export default ButtonAppBar;
